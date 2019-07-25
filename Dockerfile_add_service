@@ -1,0 +1,7 @@
+FROM tonny2v/golang:latest
+COPY ./add_service /go/src/tonny2v/add_service
+COPY ./proto /go/src/tonny2v/proto
+WORKDIR /go/src/tonny2v/add_service
+RUN go get .
+ENTRYPOINT go run main.go
+EXPOSE 3000

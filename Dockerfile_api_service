@@ -1,0 +1,7 @@
+FROM tonny2v/golang:latest
+COPY ./proto /go/src/tonny2v/proto
+COPY ./api_service /go/src/tonny2v/api_service
+WORKDIR /go/src/tonny2v/api_service
+RUN go get .
+ENTRYPOINT go run main.go
+EXPOSE 8080

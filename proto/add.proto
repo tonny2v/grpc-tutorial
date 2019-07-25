@@ -1,0 +1,19 @@
+// protoc -I . --go_out=plugins=grpc:. ./*.proto
+// python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. add.proto
+syntax = "proto3";
+
+package pb;
+
+message AddRequest {
+    uint64 a = 1;
+    uint64 b = 2;
+}
+
+message AddResponse {
+    uint64 result = 1;
+}
+
+service AddService {
+    rpc Compute (AddRequest) returns (AddResponse) {
+    }
+}
